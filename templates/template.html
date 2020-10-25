@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reporting Dashboard</title>
+
+  <!-- Load Bootstrap 4 -->
+  <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!-- Load Chart JS -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+  <!-- Load Font Awesome -->
+  <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" data-auto-replace-svg></script>
+
+  <!-- Load our stylesheet -->
+
+  <style></style>
+
+  <!-- CSS only -->
+
+  <link rel="stylesheet" type="text/css" HREF="../css/styles.css">
+
+</head>
+
+<body>
+
+<!-- Code. -->
+
+
+  <div><h1>Let's Analyze!</h1></div>
+  
+  <table>
+
+    <thead>
+
+    <tr><b>
+
+      <th> </th>
+
+    </tr></b>
+
+    </thead>
+
+      <td>Total Subscribers</td><td><canvas id="YourChartNameWithoutSpacesHere" width="400" height="150"></canvas></td>
+
+     </td>
+
+
+  </table>
+
+  <script>
+ 
+        // bar chart data
+
+            var barData = {
+                labels : [ "April","May","June","July","August","September" ],
+                datasets : [
+                    {
+                        fillColor : "#48A497",
+                        strokeColor : "#48A4D1",
+                        data : {{ YourColumnNameHere }}
+                    }
+                ]
+            }
+
+            // get bar chart canvas
+
+            var YourChartNameWithoutSpacesHere = document.getElementById("YourChartNameWithoutSpacesHere").getContext("2d");
+
+            // draw bar chart
+
+            new Chart(YourChartNameWithoutSpacesHere).Bar(barData);
+
+
+       </script>
+
+
+<!-- JS-based components. -->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
