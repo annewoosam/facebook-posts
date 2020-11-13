@@ -4,23 +4,33 @@ import datetime
 
 db = SQLAlchemy()
 
-# test = YourClassNameHereInTitleCaseSingular(channel_name='WinningCheckers', email_date='2020-01-31',number_subscribers = '1', month_end_at='2019-12-31', subscribers='0', views='1', minutes_watched='2', likes='3', comments='4', posts='5', shares='6')
-
-class YourClassNameHereInTitleCaseSingular(db.Model):
-    """A class for creator ."""
+class Facebookpost(db.Model):
+    """A class for Facebookpost."""
     
-    __tablename__ = 'YourTableNameHereLowerCasePlural'
+    __tablename__ = 'facebookposts'
 
-    YourPrimaryIDColumnNameHereLowerCase_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    channel_name = db.Column(db.Integer, autoincrement=True, primary_key=True)
 
-    YourColumnNameHereLowerCase = db.Column(YourDBTypeHereAsdb.typeSuchAsStringIntegerDate)
+    published_by = db.Column(db.String)
 
-# keep repeating till all column names finished
+    url = db.Column(db.String)
+
+    people_reached = db.Column(db.String)
+
+    engagement = db.Column(db.String)
+
+    like = db.Column(db.String)
+
+    comment = db.Column(db.String)
+
+    notes = db.Column(db.String)
+
+    last_updated = db.Column(db.String)
 
     def __repr__(self):
-        return f'<YourClassNameHereInTitleCaseSingular YourPrimaryKeyVariableHere={self.YourPrimaryKeyVariableHere} SecondColumnVariableNameHere={self.SecondColumnVariableNameHere}>'
+        return f'<Facebookpost facebookpost_id={self.facebookpost_id} channel_name={self.channel_name}>'
 
-def connect_to_db(flask_app, db_uri='postgresql:///YourDatabaseNamehere', echo=True):
+def connect_to_db(flask_app, db_uri='postgresql:///facebook_posts', echo=True):
    
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
    

@@ -1,27 +1,33 @@
 """CRUD operations."""
 
-from model import db, YourClassNameHereInTitleCaseSingular, connect_to_db
+from model import db, Facebookposts, connect_to_db
 
 import datetime
 
 
-def create_YourClassNameHereInLowerCaseSingular(YourColumnNamesHereSeparatedByCommasExcludingPrimaryKeyColumn):
+def create_Facebookpost(what, published_by, url, people_reached, engagement, like, comment, notes, last_updated):
    
 
-    YourClassNameHereInLowerCaseSingular = YourClassNameHereInTitleCaseSingular(YourColumnName=YourColumnName,
-                  YourNextColumnNameUntilLast=YourNextColumnNameUntilLast,
-                  YourLastColumnName=YourLastColumnName)
+    Facebookpost = Facebookpost(what=what,
+                  published_by=published_by,
+                  url=url,
+                  people_reached=people_reached,
+                  engagement=engagement,
+                  like=like,
+                  comment=comment,
+                  notes=notes,
+                  last_updated=last_updated)
 
-    db.session.add(YourClassNameHereInLowerCaseSingular)
+    db.session.add(Facebookpost)
 
     db.session.commit()
 
-    return YourClassNameHereInLowerCaseSingular
+    return Facebookpost
 
-def get_YourClassNameHereInLowerCasePlural():
-    """Return all rows of YourClassNameHereInLowerCaseSingular monthly data."""
+def get_Facebookposts():
+    """Return all rows of Facebookpost data."""
 
-    return YourClassNameHereInTitleCaseSingular.query.all()
+    return Facebookpost.query.all()
  
 if __name__ == '__main__':
     from server import app

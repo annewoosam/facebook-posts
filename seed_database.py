@@ -13,32 +13,46 @@ import model
 import server
 
 
-os.system('dropdb YourFolderUnderscoredAsDatabaseNameHere')
+os.system('dropdb facebook_posts')
 
-os.system('createdb YourFolderUnderscoredAsDatabaseNameHere')
+os.system('createdb facebook_posts')
 
 model.connect_to_db(server.app)
 
 model.db.create_all()
 
 
-# Create YourModelNameLowerCasedHere table's initial data.
+# Create facebookposts table's initial data.
 
-with open('data/YourModelNameLowerCasedSingularHere.json') as f:
+with open('data/facebookpost.json') as f:
 
-    YourModelNameLowerCasedSingularHere_data = json.loads(f.read())
+    facebookpost_data = json.loads(f.read())
 
-YourModelNameLowerCasedSingularHere_in_db = []
+facebookpost_in_db = []
 
-for YourModelNameLowerCasedSingularHere in YourModelNameLowerCasedSingularHere_data:
+for facebookpost in facebookpost_data:
     columnNamesSeparatedbyCommasUntilLastOne= (
-                                   YourModelNameLowerCasedSingularHere['YourFirstColumnNameHere'],
-                                   YourModelNameLowerCasedSingularHere['YourNextColumnNameHereTillLast'],
-                                   YourModelNameLowerCasedSingularHere['YourLastColumnNameHere'])
+                                   facebookpost['channel_name'],
+                                   facebookpost['what'],
+                                   facebookpost['published_by'],
+                                   facebookpost['url'],
+                                   facebookpost['people_reached'],
+                                   facebookpost['engagement'],
+                                   facebookpost['like'],
+                                   facebookpost['comment'],
+                                   facebookpost['notes'],
+                                   facebookpost['last_updated'])
 
-    db_YourModelNameLowerCasedSingularHere = crud.create_YourModelNameLowerCasedSingularHere(
-                                 YourFirstColumnNameHere,
-                                 YourNextColumnNameHereTillLast,
-                                 YourLastColumnNameHere)
+    db_facebookpost = crud.create_facebookpost(
+                                 channel_name,
+                                 what,
+                                 published_by,
+                                 url,
+                                 people_reached,
+                                 engagement,
+                                 like,
+                                 comment,
+                                 notes,
+                                 last_updated)
 
-    YourModelNameLowerCasedSingularHere_in_db.append(db_YourModelNameLowerCasedSingularHere)
+    facebookpost_in_db.append(db_facebookpost)

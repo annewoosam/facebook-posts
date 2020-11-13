@@ -1,4 +1,4 @@
-"""Server for YourFolder app."""
+"""Server for facebook-posts app."""
 
 # increased flask
 
@@ -10,7 +10,7 @@ db = SQLAlchemy()
 
 # created import allowing connection to database
 
-from model import connect_to_db, YourModelNameTitleCaseSingularStats, db
+from model import connect_to_db, Facebookpost, db
 
 app = Flask(__name__)
 
@@ -25,21 +25,33 @@ import crud
 
 @app.route('/')
 
-def all_YourModelNameLowerCasePluralStats():
+def all_facebookposts():
 
-    stats=crud.get_YourModelNameLowerCasePlural()
+    stats=crud.get_facebookposts()
     
-    YourVariableName=[q[0] for q in db.session.query(YourModelNameInTitleCaseHere.YourVariableName).all()]
+    facebookpost_id=[q[0] for q in db.session.query(Facebookpost.facebookpost_id).all()]
 
-    YourNextVariableName=[q[0] for q in db.session.query(YourModelNameInTitleCaseHere.YourNextVariableName).all()]
+    channel_name=[q[0] for q in db.session.query(Facebookpost.channel_name).all()]
      
-    #repeat till next to last variable accounted for
-      
-    YourLastVariableName=[q[0] for q in db.session.query(YourModelNameInTitleCaseHere.YourLastVariableName).all()]
-    
-    # repeat through all columns needed
+    what=[q[0] for q in db.session.query(Facebookpost.what).all()]
 
-    return render_template('YourModelNameLowerCasePlural.html', YourVariable_Name=YourVariable_Name, YourNextVariableName=YourNextVariableName, YourLastVariableName=YourLastVariableName)
+    publised_by=[q[0] for q in db.session.query(Facebookpost.published_by).all()]
+
+    url=[q[0] for q in db.session.query(Facebookpost.url).all()]
+
+    people_reached=[q[0] for q in db.session.query(Facebookpost.people_reached).all()]
+
+    engagement=[q[0] for q in db.session.query(Facebookpost.engagement).all()]
+
+    like=[q[0] for q in db.session.query(Facebookpost.like).all()]
+
+    comment=[q[0] for q in db.session.query(Facebookpost.comment).all()]
+
+    notes=[q[0] for q in db.session.query(Facebookpost.notes).all()]
+      
+    last_updated=[q[0] for q in db.session.query(Facebookpost.last_updated).all()]
+
+    return render_template('facebookposts.html', facebookpost_id=facebookpost_id, channel_name=channel_name, what=what, published_by, url, people_reached, engagement, like, comment, notes, last_updated)
 
 if __name__ == '__main__':
 
