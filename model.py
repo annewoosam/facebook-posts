@@ -15,11 +15,11 @@ class Facebookpost(db.Model):
 
     url = db.Column(db.String)
 
-    people_reached = db.Column(db.String)
+    people_reached = db.Column(db.Integer)
 
-    engagement = db.Column(db.String)
+    engagement = db.Column(db.Integer)
 
-    like = db.Column(db.String)
+    like = db.Column(db.Integer)
 
     comment = db.Column(db.String)
 
